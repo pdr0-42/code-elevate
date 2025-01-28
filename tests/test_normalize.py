@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch, MagicMock
 import pandas as pd
-from src.preprocessing.normalize import normalize_data
+from src.preprocessing.normalize import normalize_data, denormalized_data
 
 
 class MockRequest:
@@ -31,3 +31,11 @@ def test_normalize_data(mock_scaler, mock_request):
     expected_df = pd.DataFrame([[0.5, 1.0]], columns=["feature1", "feature2"])
     pd.testing.assert_frame_equal(normalized_df, expected_df)
 
+def test_denormalize_data():
+    normalized_value = 0.5
+    expected_value = 27.5
+    
+    
+    result = denormalized_data(normalized_value)
+    
+    assert result == expected_value, f"Expected {expected_value}, but got {result}"

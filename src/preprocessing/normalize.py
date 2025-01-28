@@ -26,3 +26,8 @@ def normalize_data(request: Request) -> pd.DataFrame:
     normalized_df = pd.DataFrame(normalized_data, columns=data.columns)
 
     return normalized_df
+
+def denormalized_data(data: float) -> float:
+    min_value, max_value = 5.0, 50.0
+    unnorm_data = data * (max_value - min_value) + min_value
+    return unnorm_data
