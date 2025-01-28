@@ -100,6 +100,14 @@ um processo de otimização de hiperparâmetros, o que resultou em um MAE final 
 r^2 de 0.98, e um MSE de 0.0007. O modelo otimizado foi então registrado no MLflow para facilitar seu
 rastreamento e reprodutibilidade.
 
+## Deployment
+
+O processo de deployment da solução foi realizado de forma simples e eficiente, utilizando Docker 
+para executar a aplicação em um container. Como a aplicação depende de um componente externo, não é 
+possível executá-la em um único container. Nesse caso, configuramos dois containers: um para a aplicação 
+FastAPI e outro para o servidor do MLflow, que acessa os artefatos armazenados localmente. Para gerenciar
+a execução simultânea desses containers de maneira prática, utilizamos o Docker Compose como solução.
+
 ## Como testar a aplicação?
 
 Para testar o deployment da solução, existe os seguintes requisitos:
