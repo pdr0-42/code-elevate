@@ -86,7 +86,9 @@ de cada modelo, maximizando o uso das informações disponíveis.
 
 A performance dos modelos foi avaliada utilizando a métrica:
 
-- **Mean Squared Error (MAE)**: Mean Absolute Error.
+- **Mean Squared Error (MSE)**
+- **Mean Absolute Error (MAE)**
+- **R^2** 
 
 ## Resultados
 
