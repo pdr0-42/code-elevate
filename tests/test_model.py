@@ -37,17 +37,19 @@ def test_load_model(mock_set_tracking_uri, mock_load_model, mock_config):
 
 
 @patch("mlflow.pyfunc.load_model")
-def test_predict(mock_load_model, mock_config, test_data):
+@patch("src.model.model.denormalized_data")
+def test_predict(mock_denormalize_data, mock_load_model, mock_config, test_data):
     mock_model = MagicMock()
-    mock_model.predict.return_value = ["mock-prediction"]
-
+    mock_model.predict.return_value = [2.0]
     mock_load_model.return_value = mock_model
-
+    
+    mock_denormalize_data.return_value = 2.0
+    
     model = MlFlowModel(mock_config.MODEL)
-
     prediction = model.predict(test_data)
-
+    
     mock_load_model.assert_called_once_with(mock_config.MODEL)
     mock_model.predict.assert_called_once_with(test_data)
-
-    assert prediction == "mock-prediction"
+    mock_denormalize_data.assert_called_once_with(2.0)
+    
+    assert prediction == 2.0

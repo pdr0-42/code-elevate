@@ -2,6 +2,7 @@ import mlflow
 from mlflow.pyfunc import PyFuncModel
 import pandas as pd
 from ..app.config import config
+from ..preprocessing.normalize import denormalized_data
 
 
 class MlFlowModel:
@@ -60,7 +61,6 @@ class MlFlowModel:
             The prediction result for the input data.
         """
         model: PyFuncModel = self.load_model()
-        return model.predict(data)[0]
-
+        return denormalized_data(model.predict(data)[0])
 
 model = MlFlowModel(config.MODEL)
