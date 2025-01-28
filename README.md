@@ -26,7 +26,7 @@ preditoras. As variáveis são:
 9. **RAD**: Índice de acessibilidade às rodovias radiais.
 10. **TAX**: Taxa de imposto sobre propriedade de valor total por $10.000.
 11. **PTRATIO**: Proporção aluno-professor por cidade.
-12. **B**: 1000(Bk - 0.63)^2 onde Bk é a proporção de negros por cidade.
+12. **B**: proporção da população negra por cidade
 13. **LSTAT**: Porcentagem de status inferior da população.
 14. **MEDV**: Valor mediano das casas ocupadas pelos proprietários em $1000s (variável alvo).
 
@@ -94,13 +94,11 @@ A performance dos modelos foi avaliada utilizando a métrica:
 
 Os experimentos realizados mostraram que o modelo Random Forest (ou Floresta Aleatória) 
 obteve o melhor desempenho em comparação com a Árvore de Regressão e a Regressão Linear. 
-Especificamente, o modelo apresentou um MAE de 5%, o que indica que as predições feitas 
-pela Random Forest tinham, em média, uma diferença de 5% em relação aos valores reais dos 
-preços das casas.
-
+Especificamente, o modelo apresentou um MAE de 0.05, R^2 de 0.84 e um MSE de 0.005.
 Após a análise inicial dos experimentos, o modelo Random Forest foi submetido a 
-um processo de otimização de hiperparâmetros, o que resultou em um MAE final de 6,5%. 
-O modelo otimizado foi então registrado no MLflow para facilitar seu rastreamento e reprodutibilidade.
+um processo de otimização de hiperparâmetros, o que resultou em um MAE final de 0.06(escala normalizada), 
+r^2 de 0.98, e um MSE de 0.0007. O modelo otimizado foi então registrado no MLflow para facilitar seu
+rastreamento e reprodutibilidade.
 
 ## Como testar a aplicação?
 
