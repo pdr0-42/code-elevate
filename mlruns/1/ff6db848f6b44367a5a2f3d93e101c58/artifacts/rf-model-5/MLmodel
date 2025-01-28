@@ -1,0 +1,39 @@
+artifact_path: rf-model-5
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.9
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+is_signature_from_type_hint: false
+mlflow_version: 2.20.0
+model_size_bytes: 1484452
+model_uuid: ed5daf19f4fc4b0b856cb0d8dbb99fd7
+run_id: ff6db848f6b44367a5a2f3d93e101c58
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "CRIM", "required": true}, {"type": "double",
+    "name": "ZN", "required": true}, {"type": "double", "name": "INDUS", "required":
+    true}, {"type": "double", "name": "CHAS", "required": true}, {"type": "double",
+    "name": "NOX", "required": true}, {"type": "double", "name": "RM", "required":
+    true}, {"type": "double", "name": "AGE", "required": true}, {"type": "double",
+    "name": "DIS", "required": true}, {"type": "double", "name": "RAD", "required":
+    true}, {"type": "double", "name": "TAX", "required": true}, {"type": "double",
+    "name": "PTRATIO", "required": true}, {"type": "double", "name": "LSTAT", "required":
+    true}]'
+  outputs: '[{"type": "double", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-01-27 15:11:14.006485'

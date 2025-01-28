@@ -1,0 +1,26 @@
+
+
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8084"
+    volumes:
+      - .:/app
+      - ./mlruns:/mlflow/mlruns
+    depends_on:
+      - mlflow
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - MODEL=/mlflow/mlruns/1/ff6db848f6b44367a5a2f3d93e101c58/artifacts/rf-model-5
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    ports: 
+      - "5000:5000"
+    volumes:
+      - ./mlflow.db:/mlflow/mlflow.db
+      - ./mlruns:/mlflow/mlruns
+    command: mlflow server --backend-store-uri sqlite:///mlflow/mlflow.db --default-artifact-root /mlflow/mlruns --host 0.0.0.0 --port 5000
