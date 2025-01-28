@@ -110,8 +110,26 @@ Após atender esses requisitos execute o comando abaixo na raiz do projeto:
 
 ``docker-compose up --build``
 
-O próximo passo é navegar até ``http://127.0.0.1:8084`` aonde a porta do container 
-é exposta para o host
+O próximo passo é em seu navegador abrir ``http://127.0.0.1:8084/docs`` aonde a porta 8084 do container 
+é exposta para o host. Assim conseguirá acessar o swaggerUI do FastAPI e executar uma request. Caso queira
+um exemplo para testar a API, pode usar o JSON abaixo:
+
+```
+{
+  "CRIM": 0.00632,
+  "ZN": 18.0,
+  "INDUS": 2.31,
+  "CHAS": 0,
+  "NOX": 0.538,
+  "RM": 6.575,
+  "AGE": 65.2,
+  "DIS": 4.0900,
+  "RAD": 1,
+  "TAX": 296.0,
+  "PTRATIO": 15.3,
+  "LSTAT": 4.98
+}
+```
 
 ## Monitoramento
 
